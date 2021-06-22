@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Writing a Task on PyCubed &mdash; PyCubed BeepSat  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Implementing a simple “BeepSat”" href="beepsat.html" />
+    <link rel="prev" title="Welcome to PyCubed BeepSat’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyCubed BeepSat
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing a Task on PyCubed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-task-file-structure">Understanding the Task File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps-to-execute-tasks-on-pycubed">Steps to execute Tasks on PyCubed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-simple-example">A Simple Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stopping-tasks-on-pycubed">Stopping Tasks on PyCubed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beepsat.html">Implementing a simple “BeepSat”</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyCubed BeepSat</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Writing a Task on PyCubed</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/task.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-a-task-on-pycubed">
+<h1>Writing a Task on PyCubed<a class="headerlink" href="#writing-a-task-on-pycubed" title="Permalink to this headline">¶</a></h1>
+<p>All the operations performed by the cubesat via the PyCubed board, are in the form of tasks. A <code class="docutils literal notranslate"><span class="pre">task</span></code> file is written, and pasted in the <strong>Tasks</strong> directory on the PYCUBED drive.</p>
+<div class="section" id="understanding-the-task-file-structure">
+<span id="reference-name"></span><h2>Understanding the Task File Structure<a class="headerlink" href="#understanding-the-task-file-structure" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">task</span></code> file consists of the <code class="docutils literal notranslate"><span class="pre">Task</span></code> object that encapsulates the function to be performed.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="task.Task">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">task.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">satellite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task.Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Task Object.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="task.Task.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><a class="headerlink" href="#task.Task.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>The priority level assigned to the task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="task.Task.frequency">
+<span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#task.Task.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of times the task must be executed in 1 second (Hz).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="task.Task.task_id">
+<span class="sig-name descname"><span class="pre">task_id</span></span><a class="headerlink" href="#task.Task.task_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>User defined task identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task.Task.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">satellite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task.Task.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the Task by registering the cubesat object on it.
+This is required to access the functionalities offered by the
+PyCubed board.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>satellite</strong> (<em>Satellite</em>) – The cubesat to be registered</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="task.Task.main_task">
+<em class="property"><span class="pre">coroutine</span> </em><span class="sig-name descname"><span class="pre">main_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#task.Task.main_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the code for the user defined task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – Variable number of arguments used for task execution.</p></li>
+<li><p><strong>**kwargs</strong> – Variable number of keyword arguments used for task execution.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">main_task</span></code> is NOT a regular function. It is a coroutine. Execution of coroutines does not take place in the same manner as execution of regular functions. While the scheduler in <code class="docutils literal notranslate"><span class="pre">code.py</span></code> abstracts the complexities of coroutines from the user, it may be a good idea to explore the basics of the same, through <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html">this</a> link.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The class in the <code class="docutils literal notranslate"><span class="pre">task</span></code> files <strong>MUST</strong> be named <code class="docutils literal notranslate"><span class="pre">Task</span></code> while the main async method/coroutine to be scheduled <strong>MUST</strong> be named <code class="docutils literal notranslate"><span class="pre">main_task</span></code>. This is due to the way the files are imported and scheduled in <code class="docutils literal notranslate"><span class="pre">code.py</span></code>. Not adhering to the template will result in errors.</p>
+</div>
+<p>On boot-up, the <code class="docutils literal notranslate"><span class="pre">code.py</span></code> script imports all these tasks and schedules them based on the specifications provided in the tasks.</p>
+</div>
+<div class="section" id="steps-to-execute-tasks-on-pycubed">
+<span id="ref"></span><h2>Steps to execute Tasks on PyCubed<a class="headerlink" href="#steps-to-execute-tasks-on-pycubed" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Follow the template mentioned in <a class="reference internal" href="#reference-name"><span class="std std-ref">Understanding the Task File Structure</span></a> to write the <code class="docutils literal notranslate"><span class="pre">task</span></code> file.</p></li>
+<li><p>Paste the <code class="docutils literal notranslate"><span class="pre">task</span></code> file in the <strong>Tasks</strong> folder.</p></li>
+<li><p>Reset or reboot the board.</p></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">task</span></code> file is automatically imported upon boot, leading to its execution at the specified frequency, with the specified priority level.</p>
+</div>
+<div class="section" id="a-simple-example">
+<h2>A Simple Example<a class="headerlink" href="#a-simple-example" title="Permalink to this headline">¶</a></h2>
+<p>The example below demonstrates the simple task of sending the message “Hello World!” through the radio at a frequency of 1 Hz.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task to send &quot;Hello World&quot; on the radio at a frequency of 1Hz</span>
+
+<span class="k">class</span> <span class="nc">Task</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">satellite</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cubesat</span> <span class="o">=</span> <span class="n">satellite</span>
+
+        <span class="k">async</span> <span class="k">def</span> <span class="nf">main_task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending message from PyCubed....&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cubesat</span><span class="o">.</span><span class="n">radio2</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">keep_listening</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message sent from PyCubed&quot;</span><span class="p">)</span>
+
+        <span class="n">priority</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">frequency</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">task_id</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>The above example sets the priority of the task to 1, sets the task ID to 4, and sets the execution rate of the task to 1 Hz.</p>
+<p>To run this example, create a <code class="docutils literal notranslate"><span class="pre">task</span></code> file (can be named anything, for example: <code class="docutils literal notranslate"><span class="pre">radio_send_task.py</span></code>), and copy the code onto that file.
+Paste this file in the <strong>Tasks</strong> folder on PYCUBED, and then reset the board using Ctrl+D.
+The task will automatically be executed, at the specified frequency.</p>
+</div>
+<div class="section" id="stopping-tasks-on-pycubed">
+<h2>Stopping Tasks on PyCubed<a class="headerlink" href="#stopping-tasks-on-pycubed" title="Permalink to this headline">¶</a></h2>
+<p>In certain situations, some tasks may have to be stopped from within another task.</p>
+<p>For example: If we want to end all tasks upon receiving a “killswitch” command on the radio.</p>
+<p>For this purpose a <code class="docutils literal notranslate"><span class="pre">StopTask</span></code> object is used, which resides in the <code class="docutils literal notranslate"><span class="pre">stop_tasks.py</span></code> script.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="stop_tasks.StopTask">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">stop_tasks.</span></span><span class="sig-name descname"><span class="pre">StopTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">satellite</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stop_tasks.StopTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>The StopTask object that is used to stop tasks from within a task.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stop_tasks.StopTask.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">satellite</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stop_tasks.StopTask.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the StopTask object by regsitering the cubesat on it.
+This is required to access the list of scheduled task objects from which
+the appropriate tasks are stopped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>satellite</strong> (<em>Satellite</em>) – The cubesat to be registered</p></li>
+<li><p><strong>num_of_tasks</strong> (<em>int</em>) – The number of tasks to be stopped</p></li>
+<li><p><strong>task_ids</strong> (<em>list of int</em>) – A list containing the integer task_ids of the tasks to be stopped</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stop_tasks.StopTask.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stop_tasks.StopTask.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object method that is used to stop the tasks specified by the parameters provided during initialisation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>An example is provided here- <a class="reference internal" href="beepsat.html#ref-name"><span class="std std-ref">task file to listen for messages</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to import the <code class="docutils literal notranslate"><span class="pre">StopTask</span></code> object from the <code class="docutils literal notranslate"><span class="pre">stop_tasks.py</span></code> module when using this functionality.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="beepsat.html" class="btn btn-neutral float-right" title="Implementing a simple “BeepSat”" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PyCubed BeepSat’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, P Manoj.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

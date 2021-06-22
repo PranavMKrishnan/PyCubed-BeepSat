@@ -5,7 +5,7 @@ import os
 import sys
 
 for f in os.listdir("Tasks"):
-    if f=="stop_tasks.py":
+    if f=="stop_tasks.py" or f=="task.py":
         continue
     str = "Tasks." + f[:-3]
     obj = __import__(str, globals(), locals(), [], 0)
