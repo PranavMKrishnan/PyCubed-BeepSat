@@ -13,3 +13,4 @@ class Task:
     priority = 2
     frequency = 1/10
     task_id = 2
+    schedule_later=False

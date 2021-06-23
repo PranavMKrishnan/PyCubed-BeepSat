@@ -1,4 +1,5 @@
 # Task to listen for "killswitch" command on Radio
+
 import Tasks.stop_tasks as stop_tasks
 
 class Task:
@@ -30,3 +31,4 @@ class Task:
     priority = 1
     frequency = 1
     task_id = 1
+    schedule_later= False
