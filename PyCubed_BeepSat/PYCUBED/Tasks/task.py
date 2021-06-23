@@ -7,11 +7,13 @@ class Task:
         priority:    The priority level assigned to the task.
         frequency:   Number of times the task must be executed in 1 second (Hz).
         task_id:     User defined task identifier.
+        schedule_later: If **True**, the task is scheduled after the first 'frequency' Hz interval.
     """
 
     priority: int = 3
     frequency: float = 1
     task_id: int = 3
+    schedule_later: bool=False
 
     def __init__(self, satellite):
         """
