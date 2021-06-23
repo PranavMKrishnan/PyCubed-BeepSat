@@ -57,6 +57,7 @@ The example below demonstrates the simple task of sending the message "Hello Wor
     		priority = 1
     		frequency = 1
     		task_id = 4
+                schedule_later = False
 
 The above example sets the priority of the task to 1, sets the task ID to 4, and sets the execution rate of the task to 1 Hz. 
 

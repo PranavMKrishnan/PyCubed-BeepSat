@@ -46,6 +46,7 @@ The ``task`` files required for the implementation of the "BeepSat" are below.
     		priority = 1
     		frequency = 1
     		task_id = 1
+    		schedule_later= False
 
 
 ``task`` file to transmit IMU Readings  
@@ -68,6 +69,7 @@ The ``task`` files required for the implementation of the "BeepSat" are below.
     		priority = 2
     		frequency = 1/10
     		task_id = 2
+    		schedule_later=False
 
 
 ``task`` file to transmit "Hello World!"  
@@ -89,6 +91,7 @@ The ``task`` files required for the implementation of the "BeepSat" are below.
     		priority = 3
     		frequency = 1
     		task_id = 3
+    		schedule_later=False
 
 
 .. note ::
